@@ -1,0 +1,122 @@
+@font-face {
+    font-family: digit7;
+    src: url(digit-7-mono.ttf);
+}
+
+h1 {
+    text-align: center;
+}
+
+h1.lost {
+    color: red;
+}
+
+h1.won {
+    color: green;
+}
+
+table {
+    border-spacing: 0;
+    margin: 50px auto;
+    table-layout: fixed;
+}
+
+tr {}
+
+td {
+    width: 20px;
+    height: 20px;
+    background-image: url(img/Minesweeper_unopened_square.svg);
+    background-size: contain;
+}
+
+td::after {
+    font-size: 20px;
+    margin: 5px;
+    font-family: digit7;
+    font-weight: bold;
+}
+
+td.uncovered {
+    background-image: url(img/Minesweeper_0.svg);
+}
+
+td.mine {
+    background-image: url(img/mine.png);
+}
+
+td.losing-mine {
+    border: 2px solid red;
+    background-image: url(img/mine.png);
+    box-sizing: border-box;
+}
+
+td.flag {
+    background-image: url(img/Minesweeper_flag.svg);
+}
+
+td.b1::after {
+    content: "1";
+    color: #0000ff;
+}
+
+td.b2::after {
+    content: "2";
+    color: #008200;
+}
+
+td.b3::after {
+    content: "3";
+    color: #ff0000;
+}
+
+td.b4::after {
+    content: "4";
+    color: #000084;
+}
+
+td.b5::after {
+    content: "5";
+    color: #840000
+}
+
+td.b6::after {
+    content: "6";
+    color: #008284;
+}
+
+td.b7::after {
+    content: "7";
+    color: #840084;
+}
+
+td.b8::after {
+    content: "8";
+    color: #757575;
+}
+
+form {
+    width: 720px;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: 0;
+}
+
+.submit {
+    margin-left: 200px;
+}
+
+label {
+    width: 25%;
+    text-align: right;
+    margin-right: 0.5em;
+    padding-top: 0.2em;
+    font-weight: bold;
+    float: left;
+}
+
+input.submit {
+    margin-left: 6em;
+}

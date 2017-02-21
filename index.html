@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="minesweeperApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>MineSweeper</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        [ng-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body ng-controller="minesweeperCtrl">
+    <header ng-cloak>
+        <h1 class="lost" ng-show="lost">You LOST!</h1>
+        <h1 class="won" ng-show="won">You WON!</h1>
+    </header>
+    <table width="{{twidth}}">
+        <tr ng-repeat="row in mineField">
+            <td ng-repeat="cell in row" ng-click="uncover(cell)" right-click="flag(cell)" ng-class="{
+          'uncovered': cell.status == 'uncovered',
+          'flag': cell.status == 'flagged',
+          'mine': cell.content == 'mine' && (cell.status == 'uncovered' || lost),
+          'losing-mine': cell.status == 'losing',
+          'b1': cell.status == 'uncovered' && cell.content == 1,
+          'b2': cell.status == 'uncovered' && cell.content == 2,
+          'b3': cell.status == 'uncovered' && cell.content == 3,
+          'b4': cell.status == 'uncovered' && cell.content == 4,
+          'b5': cell.status == 'uncovered' && cell.content == 5,
+          'b6': cell.status == 'uncovered' && cell.content == 6,
+          'b7': cell.status == 'uncovered' && cell.content == 7,
+          'b8': cell.status == 'uncovered' && cell.content == 8
+        }"></td>
+        </tr>
+    </table>
+    <form ng-submit="createMineField()">
+        <fieldset>
+            <label for="length">Mine Field's length</label>
+            <input type="text" name="length" ng-model="length">
+        </fieldset>
+        <fieldset>
+            <label for="width">Mine Field's width</label>
+            <input type="text" name="width" ng-model="width">
+        </fieldset>
+        <fieldset>
+            <label for="mines">Total Mines number</label>
+            <input type="text" name="mines" ng-model="mines">
+        </fieldset>
+        <fieldset class="submit">
+            <input type="submit" value="Create a new mine field">
+        </fieldset>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
